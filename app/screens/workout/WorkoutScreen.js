@@ -7,6 +7,7 @@ import {
     TouchableOpacity,
     SafeAreaView,
     Image,
+    ScrollView,
 } from 'react-native';
 import { useTheme } from '../../contexts/ThemeContext';
 import { TopBar } from '../../components/navigation/TopBar';
@@ -182,7 +183,7 @@ export const WorkoutScreen = ({ navigation }) => {
             </View>
 
             <View style={styles.categoriesContainer}>
-                <View style={styles.categoriesScroll}>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.categoriesScroll}>
                     {categories.map((category) => (
                         <TouchableOpacity
                             key={category.value}
@@ -203,7 +204,7 @@ export const WorkoutScreen = ({ navigation }) => {
                             </Text>
                         </TouchableOpacity>
                     ))}
-                </View>
+                </ScrollView>
             </View>
 
             <FlatList

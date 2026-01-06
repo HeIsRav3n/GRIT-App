@@ -110,15 +110,16 @@ const MainTabs = () => {
                 tabBarStyle: {
                     backgroundColor: theme.colors.card,
                     borderTopColor: theme.colors.border,
-                    paddingBottom: 5,
-                    paddingTop: 5,
-                    height: 60,
+                    paddingBottom: 8,
+                    paddingTop: 8,
+                    height: 70,
                 },
                 tabBarActiveTintColor: theme.colors.primary,
                 tabBarInactiveTintColor: theme.colors.textTertiary,
                 tabBarLabelStyle: {
-                    fontSize: 12,
-                    fontWeight: '500',
+                    fontSize: 11,
+                    fontWeight: '600',
+                    marginTop: 2,
                 },
                 tabBarLabelPosition: 'below-icon',
             }}
@@ -147,9 +148,9 @@ const MainTabs = () => {
                 name="Chat"
                 component={ChatStack}
                 options={{
-                    tabBarLabel: 'Coach',
+                    tabBarLabel: 'Chat',
                     tabBarIcon: ({ color, focused }) => (
-                        <Text style={{ fontSize: focused ? 26 : 24 }}>💬</Text>
+                        <Text style={{ fontSize: focused ? 24 : 22 }}>💬</Text>
                     ),
                 }}
             />
