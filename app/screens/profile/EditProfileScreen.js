@@ -17,6 +17,7 @@ import { Input } from '../../components/common/Input';
 import { textStyles } from '../../theme/typography';
 import { spacing, borderRadius, shadows } from '../../theme/spacing';
 import { useTranslation } from 'react-i18next';
+import { isValidImageUri } from '../../utils/imageUtils';
 
 export const EditProfileScreen = ({ navigation }) => {
     const { theme } = useTheme();
@@ -250,7 +251,7 @@ export const EditProfileScreen = ({ navigation }) => {
                 <View style={styles.photoSection}>
                     <TouchableOpacity style={styles.photoContainer} onPress={showImageOptions}>
                         <View style={styles.profilePicture}>
-                            {formData.profilePicture && !imageError ? (
+                            {formData.profilePicture && isValidImageUri(formData.profilePicture) && !imageError ? (
                                 <Image
                                     source={{ uri: formData.profilePicture }}
                                     style={styles.profileImage}

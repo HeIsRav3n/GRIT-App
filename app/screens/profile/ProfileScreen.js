@@ -15,6 +15,7 @@ import { Button } from '../../components/common/Button';
 import { textStyles } from '../../theme/typography';
 import { spacing, borderRadius, shadows } from '../../theme/spacing';
 import { useTranslation } from 'react-i18next';
+import { isValidImageUri } from '../../utils/imageUtils';
 
 export const ProfileScreen = ({ navigation }) => {
     const { theme } = useTheme();
@@ -174,7 +175,7 @@ export const ProfileScreen = ({ navigation }) => {
                 {/* Profile Header */}
                 <View style={styles.profileHeader}>
                     <View style={styles.profilePicture}>
-                        {user?.profilePicture && !imageError ? (
+                        {user?.profilePicture && isValidImageUri(user.profilePicture) && !imageError ? (
                             <Image
                                 source={{ uri: user.profilePicture }}
                                 style={styles.profileImage}
