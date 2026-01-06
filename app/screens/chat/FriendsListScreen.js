@@ -261,7 +261,12 @@ export const FriendsListScreen = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
 
-            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={true}>
+            <ScrollView
+                style={{ flex: 1 }}
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
+                showsVerticalScrollIndicator={true}
+                bounces={true}
+            >
                 {/* Search */}
                 <View style={styles.searchContainer}>
                     <Text style={styles.searchIcon}>🔍</Text>
@@ -276,7 +281,11 @@ export const FriendsListScreen = ({ navigation }) => {
 
                 {/* Groups */}
                 <Text style={styles.sectionTitle}>Groups</Text>
-                <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.groupsRow}>
+                <ScrollView
+                    horizontal
+                    showsHorizontalScrollIndicator={true}
+                    contentContainerStyle={[styles.groupsRow, { flexGrow: 1 }]}
+                >
                     <TouchableOpacity style={styles.createGroupCard} onPress={() => navigation.navigate('CreateGroup')}>
                         <Text style={styles.createGroupIcon}>➕</Text>
                         <Text style={[styles.groupName, { opacity: 0.5 }]}>Create</Text>

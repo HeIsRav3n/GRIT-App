@@ -210,7 +210,12 @@ export const CreateGroupScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>Create Group</Text>
             </View>
 
-            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={true}>
+            <ScrollView
+                style={{ flex: 1 }}
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
+                showsVerticalScrollIndicator={true}
+                bounces={true}
+            >
                 <View style={styles.card}>
                     <Text style={styles.sectionTitle}>Group Name</Text>
                     <TextInput

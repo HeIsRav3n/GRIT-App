@@ -254,7 +254,12 @@ export const GoalsScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>{t('profile.goals')}</Text>
             </View>
 
-            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={true}>
+            <ScrollView
+                style={{ flex: 1 }}
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
+                showsVerticalScrollIndicator={true}
+                bounces={true}
+            >
                 {/* Intro Card */}
                 <View style={styles.introCard}>
                     <Text style={styles.introTitle}>🎯 Set Your Fitness Goals</Text>

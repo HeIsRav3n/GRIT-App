@@ -301,19 +301,23 @@ export const ChatScreen = ({ navigation }) => {
                     data={messages}
                     renderItem={renderMessage}
                     keyExtractor={(item) => item.id}
-                    contentContainerStyle={styles.messagesContent}
+                    contentContainerStyle={[styles.messagesContent, { flexGrow: 1 }]}
                     onContentSizeChange={() => flatListRef.current?.scrollToEnd()}
                     removeClippedSubviews={true}
                     maxToRenderPerBatch={20}
                     initialNumToRender={20}
                     windowSize={10}
-                    showsVerticalScrollIndicator={false}
+                    showsVerticalScrollIndicator={true}
                     bounces={true}
                 />
 
                 {/* Quick Replies - Compact Horizontal */}
                 <View style={styles.quickRepliesContainer}>
-                    <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.quickRepliesScroll}>
+                    <ScrollView
+                        horizontal
+                        showsHorizontalScrollIndicator={true}
+                        contentContainerStyle={[styles.quickRepliesScroll, { flexGrow: 1 }]}
+                    >
                         {quickReplies.map((reply) => (
                             <TouchableOpacity
                                 key={reply.id}

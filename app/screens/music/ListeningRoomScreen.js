@@ -394,7 +394,12 @@ export const ListeningRoomScreen = ({ navigation }) => {
                     <Text style={styles.headerTitle}>👥 Listening Room</Text>
                 </View>
 
-                <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent}>
+                <ScrollView
+                    style={{ flex: 1 }}
+                    contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
+                    showsVerticalScrollIndicator={true}
+                    bounces={true}
+                >
                     <View style={styles.noRoomCard}>
                         <Text style={styles.noRoomIcon}>🎧</Text>
                         <Text style={styles.noRoomTitle}>Listening Room</Text>
@@ -425,7 +430,12 @@ export const ListeningRoomScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>👥 Listening Room</Text>
             </View>
 
-            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={true}>
+            <ScrollView
+                style={{ flex: 1 }}
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
+                showsVerticalScrollIndicator={true}
+                bounces={true}
+            >
                 {/* Room Info */}
                 <View style={styles.roomCard}>
                     <View style={styles.roomHeader}>

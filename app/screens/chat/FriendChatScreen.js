@@ -279,9 +279,10 @@ export const FriendChatScreen = ({ navigation, route }) => {
                     data={messages}
                     renderItem={renderMessage}
                     keyExtractor={(item) => item.id}
-                    contentContainerStyle={styles.messagesContent}
+                    contentContainerStyle={[styles.messagesContent, { flexGrow: 1 }]}
                     onContentSizeChange={() => flatListRef.current?.scrollToEnd()}
-                    showsVerticalScrollIndicator={false}
+                    showsVerticalScrollIndicator={true}
+                    bounces={true}
                 />
 
                 <View style={styles.inputContainer}>

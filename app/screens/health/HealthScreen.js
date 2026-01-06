@@ -230,7 +230,12 @@ export const HealthScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>{t('health.title')}</Text>
             </View>
 
-            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={true}>
+            <ScrollView
+                style={{ flex: 1 }}
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
+                showsVerticalScrollIndicator={true}
+                bounces={true}
+            >
                 {/* BMI Card */}
                 <View style={[styles.card, styles.bmiCard]}>
                     <Text style={styles.sectionTitle}>Your BMI</Text>

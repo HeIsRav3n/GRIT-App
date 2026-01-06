@@ -326,7 +326,12 @@ export const MusicHubScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>🎵 Music Hub</Text>
             </View>
 
-            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={true}>
+            <ScrollView
+                style={{ flex: 1 }}
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
+                showsVerticalScrollIndicator={true}
+                bounces={true}
+            >
                 {/* Hero Section */}
                 <View style={styles.heroCard}>
                     <Text style={styles.heroIcon}>🎧</Text>

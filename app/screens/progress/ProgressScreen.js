@@ -221,7 +221,12 @@ export const ProgressScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>{t('progress.title')}</Text>
             </View>
 
-            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={true}>
+            <ScrollView
+                style={{ flex: 1 }}
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
+                showsVerticalScrollIndicator={true}
+                bounces={true}
+            >
                 {/* Weekly Summary */}
                 <View style={styles.card}>
                     <Text style={styles.sectionTitle}>{t('progress.weeklyComparison')}</Text>

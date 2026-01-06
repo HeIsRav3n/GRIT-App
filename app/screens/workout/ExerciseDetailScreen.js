@@ -6,6 +6,7 @@ import {
     ScrollView,
     TouchableOpacity,
     SafeAreaView,
+    Image,
 } from 'react-native';
 import { useTheme } from '../../contexts/ThemeContext';
 import { Button } from '../../components/common/Button';
@@ -153,10 +154,23 @@ export const ExerciseDetailScreen = ({ route, navigation }) => {
                 <Text style={styles.headerTitle}>{exercise.name}</Text>
             </View>
 
-            <ScrollView contentContainerStyle={styles.scrollContent}>
+            <ScrollView
+                style={{ flex: 1 }}
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
+                showsVerticalScrollIndicator={true}
+                bounces={true}
+            >
                 {/* Exercise Image/GIF */}
                 <View style={styles.imageContainer}>
-                    <Text style={styles.imagePlaceholder}>💪</Text>
+                    {exercise.imagePath ? (
+                        <Image
+                            source={{ uri: exercise.imagePath }}
+                            style={{ width: '100%', height: '100%', borderRadius: borderRadius.lg }}
+                            resizeMode="cover"
+                        />
+                    ) : (
+                        <Text style={styles.imagePlaceholder}>💪</Text>
+                    )}
                 </View>
 
                 {/* Info Grid */}

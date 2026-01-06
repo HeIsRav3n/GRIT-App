@@ -247,7 +247,12 @@ export const HydrationScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>{t('hydration.title')}</Text>
             </View>
 
-            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={true}>
+            <ScrollView
+                style={{ flex: 1 }}
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
+                showsVerticalScrollIndicator={true}
+                bounces={true}
+            >
                 {/* Progress Card */}
                 <View style={styles.progressCard}>
                     <Text style={styles.progressIcon}>💧</Text>

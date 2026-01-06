@@ -337,10 +337,10 @@ export const CoachSetupScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView
-                contentContainerStyle={styles.scrollContent}
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
                 scrollEventThrottle={16}
                 keyboardShouldPersistTaps="handled"
-                showsVerticalScrollIndicator={false}
+                showsVerticalScrollIndicator={true}
                 bounces={true}
             >
                 {/* Step Indicator */}

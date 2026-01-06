@@ -243,7 +243,12 @@ export const QRCodeScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>{t('qr.title')}</Text>
             </View>
 
-            <View style={styles.content}>
+            <ScrollView
+                style={{ flex: 1 }}
+                contentContainerStyle={[styles.content, { flexGrow: 1 }]}
+                showsVerticalScrollIndicator={true}
+                bounces={true}
+            >
                 {/* My QR Code */}
                 <View style={styles.qrContainer}>
                     <Text style={styles.qrTitle}>{t('qr.myCode')}</Text>
@@ -278,7 +283,7 @@ export const QRCodeScreen = ({ navigation }) => {
                     icon={<Text style={{ fontSize: 20, marginRight: spacing.sm }}>📷</Text>}
                     style={styles.scanButton}
                 />
-            </View>
+            </ScrollView>
         </SafeAreaView>
     );
 };

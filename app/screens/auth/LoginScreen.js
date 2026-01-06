@@ -105,7 +105,12 @@ export const LoginScreen = ({ navigation }) => {
             style={styles.container}
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         >
-            <ScrollView contentContainerStyle={styles.scrollContent}>
+            <ScrollView
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
+                showsVerticalScrollIndicator={true}
+                bounces={true}
+                keyboardShouldPersistTaps="handled"
+            >
                 <Text style={styles.logo}>GRIT</Text>
                 <Text style={styles.title}>{t('auth.login')}</Text>
 

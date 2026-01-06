@@ -171,7 +171,11 @@ export const ProfileScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <TopBar />
-            <ScrollView contentContainerStyle={styles.scrollContent}>
+            <ScrollView
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
+                showsVerticalScrollIndicator={true}
+                bounces={true}
+            >
                 {/* Profile Header */}
                 <View style={styles.profileHeader}>
                     <View style={styles.profilePicture}>

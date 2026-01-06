@@ -205,7 +205,12 @@ export const SettingsScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>{t('profile.settings')}</Text>
             </View>
 
-            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={true}>
+            <ScrollView
+                style={{ flex: 1 }}
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
+                showsVerticalScrollIndicator={true}
+                bounces={true}
+            >
                 {/* Appearance */}
                 <View style={styles.section}>
                     <Text style={styles.sectionTitle}>Appearance</Text>

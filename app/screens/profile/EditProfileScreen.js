@@ -257,7 +257,12 @@ export const EditProfileScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>{t('profile.editProfile')}</Text>
             </View>
 
-            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={true}>
+            <ScrollView
+                style={{ flex: 1 }}
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
+                showsVerticalScrollIndicator={true}
+                bounces={true}
+            >
                 {/* Photo Section */}
                 <View style={styles.photoSection}>
                     <TouchableOpacity style={styles.photoContainer} onPress={showImageOptions}>
