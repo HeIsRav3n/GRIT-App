@@ -33,6 +33,7 @@ import { EditProfileScreen } from '../screens/profile/EditProfileScreen';
 import { GoalsScreen } from '../screens/goals/GoalsScreen';
 
 // Chat Screens
+import { ChatHubScreen } from '../screens/chat/ChatHubScreen';
 import { FriendsListScreen } from '../screens/chat/FriendsListScreen';
 import { FriendChatScreen } from '../screens/chat/FriendChatScreen';
 import { GroupChatScreen } from '../screens/chat/GroupChatScreen';
@@ -72,6 +73,7 @@ const WorkoutStack = () => {
 const ChatStack = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="ChatHub" component={ChatHubScreen} />
             <Stack.Screen name="ChatHome" component={ChatScreen} />
             <Stack.Screen name="FriendsList" component={FriendsListScreen} />
             <Stack.Screen name="FriendChat" component={FriendChatScreen} />

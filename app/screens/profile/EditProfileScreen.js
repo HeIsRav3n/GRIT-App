@@ -38,11 +38,17 @@ export const EditProfileScreen = ({ navigation }) => {
             mediaTypes: ['images'],
             allowsEditing: true,
             aspect: [1, 1],
-            quality: 0.8,
+            quality: 0.5,
+            base64: true,
         });
 
         if (!result.canceled && result.assets && result.assets[0]) {
-            setFormData({ ...formData, profilePicture: result.assets[0].uri });
+            const asset = result.assets[0];
+            // Use base64 data URI for web persistence
+            const imageUri = asset.base64
+                ? `data:image/jpeg;base64,${asset.base64}`
+                : asset.uri;
+            setFormData({ ...formData, profilePicture: imageUri });
             setImageError(false);
         }
     };
@@ -57,11 +63,16 @@ export const EditProfileScreen = ({ navigation }) => {
         const result = await ImagePicker.launchCameraAsync({
             allowsEditing: true,
             aspect: [1, 1],
-            quality: 0.8,
+            quality: 0.5,
+            base64: true,
         });
 
         if (!result.canceled && result.assets && result.assets[0]) {
-            setFormData({ ...formData, profilePicture: result.assets[0].uri });
+            const asset = result.assets[0];
+            const imageUri = asset.base64
+                ? `data:image/jpeg;base64,${asset.base64}`
+                : asset.uri;
+            setFormData({ ...formData, profilePicture: imageUri });
             setImageError(false);
         }
     };
