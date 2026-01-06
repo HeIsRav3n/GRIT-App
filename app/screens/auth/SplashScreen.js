@@ -7,7 +7,7 @@ import { spacing } from '../../theme/spacing';
 
 export const SplashScreen = ({ navigation }) => {
     const { theme } = useTheme();
-    const { isAuthenticated, isLoading } = useAuth();
+    const { isAuthenticated, isLoading, onboardingComplete } = useAuth();
 
     useEffect(() => {
         if (!isLoading) {
