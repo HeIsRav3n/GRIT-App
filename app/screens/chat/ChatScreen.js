@@ -9,6 +9,7 @@ import {
     SafeAreaView,
     KeyboardAvoidingView,
     Platform,
+    ScrollView,
 } from 'react-native';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useAuth } from '../../contexts/AuthContext';
@@ -33,12 +34,12 @@ export const ChatScreen = ({ navigation }) => {
     const flatListRef = useRef(null);
 
     const quickReplies = [
-        { id: '1', text: t('coach.quickReplies.easier'), icon: '😌' },
-        { id: '2', text: t('coach.quickReplies.harder'), icon: '🔥' },
-        { id: '3', text: t('coach.quickReplies.sore'), icon: '💪' },
-        { id: '4', text: t('coach.quickReplies.short'), icon: '⏱️' },
-        { id: '5', text: t('coach.quickReplies.hydration'), icon: '💧' },
-        { id: '6', text: t('coach.quickReplies.motivate'), icon: '⚡' },
+        { id: '1', text: t('coach.quickReplies.easier'), icon: '😌', short: 'Easier' },
+        { id: '2', text: t('coach.quickReplies.harder'), icon: '🔥', short: 'Harder' },
+        { id: '3', text: t('coach.quickReplies.sore'), icon: '💪', short: 'Sore' },
+        { id: '4', text: t('coach.quickReplies.short'), icon: '⏱️', short: '20min' },
+        { id: '5', text: t('coach.quickReplies.hydration'), icon: '💧', short: 'Water' },
+        { id: '6', text: t('coach.quickReplies.motivate'), icon: '⚡', short: 'Motivate' },
     ];
 
     const sendMessage = (text) => {
@@ -167,35 +168,36 @@ export const ChatScreen = ({ navigation }) => {
             color: theme.colors.textTertiary,
         },
         quickRepliesContainer: {
-            paddingHorizontal: spacing.lg,
-            paddingVertical: spacing.md,
+            paddingHorizontal: spacing.sm,
+            paddingVertical: spacing.xs,
             borderTopWidth: 1,
             borderTopColor: theme.colors.border,
+            maxHeight: 50,
         },
         quickRepliesTitle: {
-            ...textStyles.caption,
-            color: theme.colors.textSecondary,
-            marginBottom: spacing.sm,
+            display: 'none',
         },
         quickRepliesScroll: {
             flexDirection: 'row',
-            flexWrap: 'wrap',
-            gap: spacing.sm,
+            gap: spacing.xs,
+            overflow: 'scroll',
         },
         quickReplyChip: {
             flexDirection: 'row',
             alignItems: 'center',
             backgroundColor: theme.colors.backgroundSecondary,
             borderRadius: borderRadius.round,
-            paddingHorizontal: spacing.md,
-            paddingVertical: spacing.sm,
-            gap: spacing.xs,
+            paddingHorizontal: spacing.sm,
+            paddingVertical: 4,
+            gap: 4,
+            borderWidth: 1,
+            borderColor: theme.colors.border,
         },
         quickReplyIcon: {
-            fontSize: 14,
+            fontSize: 12,
         },
         quickReplyText: {
-            ...textStyles.bodySmall,
+            fontSize: 11,
             color: theme.colors.text,
         },
         inputContainer: {
@@ -283,6 +285,9 @@ export const ChatScreen = ({ navigation }) => {
                     <Text style={styles.headerTitle}>{t('chat.aiCoach')}</Text>
                     <Text style={styles.headerSubtitle}>● Online</Text>
                 </View>
+                <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('FriendsList')}>
+                    <Text style={{ fontSize: 20 }}>👥</Text>
+                </TouchableOpacity>
             </View>
 
             <KeyboardAvoidingView
@@ -306,10 +311,9 @@ export const ChatScreen = ({ navigation }) => {
                     bounces={true}
                 />
 
-                {/* Quick Replies */}
+                {/* Quick Replies - Compact Horizontal */}
                 <View style={styles.quickRepliesContainer}>
-                    <Text style={styles.quickRepliesTitle}>{t('chat.quickReplies')}</Text>
-                    <View style={styles.quickRepliesScroll}>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.quickRepliesScroll}>
                         {quickReplies.map((reply) => (
                             <TouchableOpacity
                                 key={reply.id}
@@ -317,10 +321,10 @@ export const ChatScreen = ({ navigation }) => {
                                 onPress={() => sendMessage(reply.text)}
                             >
                                 <Text style={styles.quickReplyIcon}>{reply.icon}</Text>
-                                <Text style={styles.quickReplyText}>{reply.text}</Text>
+                                <Text style={styles.quickReplyText}>{reply.short}</Text>
                             </TouchableOpacity>
                         ))}
-                    </View>
+                    </ScrollView>
                 </View>
 
                 {/* Input Area */}

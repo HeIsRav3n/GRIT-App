@@ -36,7 +36,7 @@ export const ProfileScreen = ({ navigation }) => {
             title: 'Fitness',
             items: [
                 { label: t('profile.fitnessLevel'), value: user?.fitnessLevel || 'Not set', icon: '💪' },
-                { label: t('profile.goals'), value: 'View Goals', icon: '🎯', action: () => { } },
+                { label: t('profile.goals'), value: 'View Goals', icon: '🎯', action: () => navigation.navigate('Goals') },
             ],
         },
     ];
@@ -44,6 +44,7 @@ export const ProfileScreen = ({ navigation }) => {
     const menuItems = [
         { label: 'QR Code', icon: '📱', action: () => navigation.navigate('QRCode') },
         { label: t('health.title'), icon: '❤️', action: () => navigation.navigate('Health') },
+        { label: '🎵 Music Hub', icon: '🎧', action: () => navigation.navigate('MusicHub') },
         { label: t('profile.settings'), icon: '⚙️', action: () => navigation.navigate('Settings') },
     ];
 

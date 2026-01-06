@@ -32,6 +32,16 @@ import { SettingsScreen } from '../screens/settings/SettingsScreen';
 import { EditProfileScreen } from '../screens/profile/EditProfileScreen';
 import { GoalsScreen } from '../screens/goals/GoalsScreen';
 
+// Chat Screens
+import { FriendsListScreen } from '../screens/chat/FriendsListScreen';
+import { FriendChatScreen } from '../screens/chat/FriendChatScreen';
+import { GroupChatScreen } from '../screens/chat/GroupChatScreen';
+import { CreateGroupScreen } from '../screens/chat/CreateGroupScreen';
+
+// Music Screens
+import { MusicHubScreen } from '../screens/music/MusicHubScreen';
+import { ListeningRoomScreen } from '../screens/music/ListeningRoomScreen';
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -63,6 +73,10 @@ const ChatStack = () => {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="ChatHome" component={ChatScreen} />
+            <Stack.Screen name="FriendsList" component={FriendsListScreen} />
+            <Stack.Screen name="FriendChat" component={FriendChatScreen} />
+            <Stack.Screen name="GroupChat" component={GroupChatScreen} />
+            <Stack.Screen name="CreateGroup" component={CreateGroupScreen} />
         </Stack.Navigator>
     );
 };
@@ -77,6 +91,8 @@ const ProfileStack = () => {
             <Stack.Screen name="Settings" component={SettingsScreen} />
             <Stack.Screen name="EditProfile" component={EditProfileScreen} />
             <Stack.Screen name="Goals" component={GoalsScreen} />
+            <Stack.Screen name="MusicHub" component={MusicHubScreen} />
+            <Stack.Screen name="ListeningRoom" component={ListeningRoomScreen} />
         </Stack.Navigator>
     );
 };
