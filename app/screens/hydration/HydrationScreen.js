@@ -104,7 +104,8 @@ export const HydrationScreen = ({ navigation }) => {
         },
         scrollContent: {
             padding: spacing.lg,
-            paddingBottom: spacing.xxl,
+            paddingBottom: 150,
+            flexGrow: 1,
         },
         progressCard: {
             backgroundColor: theme.colors.card,
@@ -246,7 +247,7 @@ export const HydrationScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>{t('hydration.title')}</Text>
             </View>
 
-            <ScrollView contentContainerStyle={styles.scrollContent}>
+            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={true}>
                 {/* Progress Card */}
                 <View style={styles.progressCard}>
                     <Text style={styles.progressIcon}>💧</Text>

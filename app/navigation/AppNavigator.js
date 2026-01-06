@@ -30,6 +30,7 @@ import { ProgressScreen } from '../screens/progress/ProgressScreen';
 import { HealthScreen } from '../screens/health/HealthScreen';
 import { SettingsScreen } from '../screens/settings/SettingsScreen';
 import { EditProfileScreen } from '../screens/profile/EditProfileScreen';
+import { GoalsScreen } from '../screens/goals/GoalsScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -75,6 +76,7 @@ const ProfileStack = () => {
             <Stack.Screen name="Health" component={HealthScreen} />
             <Stack.Screen name="Settings" component={SettingsScreen} />
             <Stack.Screen name="EditProfile" component={EditProfileScreen} />
+            <Stack.Screen name="Goals" component={GoalsScreen} />
         </Stack.Navigator>
     );
 };

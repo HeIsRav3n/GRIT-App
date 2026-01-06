@@ -79,7 +79,8 @@ export const ProgressScreen = ({ navigation }) => {
         },
         scrollContent: {
             padding: spacing.lg,
-            paddingBottom: spacing.xxl,
+            paddingBottom: 150,
+            flexGrow: 1,
         },
         card: {
             backgroundColor: theme.colors.card,
@@ -220,7 +221,7 @@ export const ProgressScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>{t('progress.title')}</Text>
             </View>
 
-            <ScrollView contentContainerStyle={styles.scrollContent}>
+            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={true}>
                 {/* Weekly Summary */}
                 <View style={styles.card}>
                     <Text style={styles.sectionTitle}>{t('progress.weeklyComparison')}</Text>

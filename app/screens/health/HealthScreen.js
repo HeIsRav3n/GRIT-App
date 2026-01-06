@@ -132,7 +132,8 @@ export const HealthScreen = ({ navigation }) => {
         },
         scrollContent: {
             padding: spacing.lg,
-            paddingBottom: spacing.xxl + 80,
+            paddingBottom: 200,
+            flexGrow: 1,
         },
         card: {
             backgroundColor: theme.colors.card,
@@ -229,7 +230,7 @@ export const HealthScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>{t('health.title')}</Text>
             </View>
 
-            <ScrollView contentContainerStyle={styles.scrollContent}>
+            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={true}>
                 {/* BMI Card */}
                 <View style={[styles.card, styles.bmiCard]}>
                     <Text style={styles.sectionTitle}>Your BMI</Text>

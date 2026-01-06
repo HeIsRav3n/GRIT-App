@@ -151,7 +151,8 @@ export const EditProfileScreen = ({ navigation }) => {
         },
         scrollContent: {
             padding: spacing.lg,
-            paddingBottom: spacing.xxl + 80,
+            paddingBottom: 200,
+            flexGrow: 1,
         },
         photoSection: {
             alignItems: 'center',
@@ -244,7 +245,7 @@ export const EditProfileScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>{t('profile.editProfile')}</Text>
             </View>
 
-            <ScrollView contentContainerStyle={styles.scrollContent}>
+            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={true}>
                 {/* Photo Section */}
                 <View style={styles.photoSection}>
                     <TouchableOpacity style={styles.photoContainer} onPress={showImageOptions}>

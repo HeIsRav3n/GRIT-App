@@ -92,7 +92,8 @@ export const SettingsScreen = ({ navigation }) => {
         },
         scrollContent: {
             padding: spacing.lg,
-            paddingBottom: spacing.xxl,
+            paddingBottom: 150,
+            flexGrow: 1,
         },
         section: {
             marginBottom: spacing.xl,
@@ -204,7 +205,7 @@ export const SettingsScreen = ({ navigation }) => {
                 <Text style={styles.headerTitle}>{t('profile.settings')}</Text>
             </View>
 
-            <ScrollView contentContainerStyle={styles.scrollContent}>
+            <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={true}>
                 {/* Appearance */}
                 <View style={styles.section}>
                     <Text style={styles.sectionTitle}>Appearance</Text>
