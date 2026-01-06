@@ -181,7 +181,21 @@ const MainTabs = () => {
 // Root Navigator
 export const AppNavigator = () => {
     const { theme } = useTheme();
-    const { isAuthenticated, onboardingComplete, isLoading } = useAuth();
+    const { isAuthenticated, onboardingComplete, isLoading: authLoading } = useAuth();
+    const [forceEntry, setForceEntry] = React.useState(false);
+
+    // Safety timeout: If loading takes > 5s, force entry
+    React.useEffect(() => {
+        if (authLoading) {
+            const timer = setTimeout(() => {
+                console.log('⚠️ Loading taking too long, forcing entry...');
+                setForceEntry(true);
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [authLoading]);
+
+    const isLoading = authLoading && !forceEntry;
 
     // Debug logging
     console.log('🔍 AppNavigator State:', { isAuthenticated, onboardingComplete, isLoading });

@@ -39,11 +39,16 @@ export const SignUpScreen = ({ navigation }) => {
             mediaTypes: ['images'],
             allowsEditing: true,
             aspect: [1, 1],
-            quality: 0.8,
+            quality: 0.5,
+            base64: true,
         });
 
-        if (!result.canceled) {
-            setFormData({ ...formData, profilePicture: result.assets[0].uri });
+        if (!result.canceled && result.assets && result.assets[0]) {
+            const asset = result.assets[0];
+            const imageUri = asset.base64
+                ? `data:image/jpeg;base64,${asset.base64}`
+                : asset.uri;
+            setFormData({ ...formData, profilePicture: imageUri });
         }
     };
 
@@ -180,11 +185,9 @@ export const SignUpScreen = ({ navigation }) => {
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         >
             <ScrollView
-                contentContainerStyle={styles.scrollContent}
-                removeClippedSubviews={true}
-                scrollEventThrottle={16}
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
                 keyboardShouldPersistTaps="handled"
-                showsVerticalScrollIndicator={false}
+                showsVerticalScrollIndicator={true}
                 bounces={true}
             >
                 <Text style={styles.logo}>GRIT</Text>

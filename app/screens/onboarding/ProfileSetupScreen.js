@@ -143,10 +143,9 @@ export const ProfileSetupScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView
-                contentContainerStyle={styles.scrollContent}
-                scrollEventThrottle={16}
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
                 keyboardShouldPersistTaps="handled"
-                showsVerticalScrollIndicator={false}
+                showsVerticalScrollIndicator={true}
                 bounces={true}
             >
                 <Text style={styles.title}>Let's Set Up Your Profile</Text>

@@ -132,11 +132,12 @@ export const DashboardScreen = ({ navigation }) => {
         <SafeAreaView style={styles.container}>
             <TopBar />
             <ScrollView
-                contentContainerStyle={styles.scrollContent}
+                style={{ flex: 1 }}
+                contentContainerStyle={[styles.scrollContent, { flexGrow: 1 }]}
                 removeClippedSubviews={true}
                 scrollEventThrottle={16}
                 keyboardShouldPersistTaps="handled"
-                showsVerticalScrollIndicator={false}
+                showsVerticalScrollIndicator={true}
                 bounces={true}
                 overScrollMode="auto"
             >

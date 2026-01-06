@@ -183,7 +183,11 @@ export const WorkoutScreen = ({ navigation }) => {
             </View>
 
             <View style={styles.categoriesContainer}>
-                <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.categoriesScroll}>
+                <ScrollView
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={[styles.categoriesScroll, { flexGrow: 1 }]}
+                >
                     {categories.map((category) => (
                         <TouchableOpacity
                             key={category.value}

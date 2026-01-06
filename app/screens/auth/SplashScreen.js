@@ -14,13 +14,18 @@ export const SplashScreen = ({ navigation }) => {
             // Navigate after a short delay
             setTimeout(() => {
                 if (isAuthenticated) {
-                    navigation.replace('Main');
+                    if (onboardingComplete) {
+                        navigation.replace('Main');
+                    } else {
+                        // If authenticated but onboarding not done, go to ProfileSetup
+                        navigation.replace('ProfileSetup');
+                    }
                 } else {
                     navigation.replace('Login');
                 }
             }, 2000);
         }
-    }, [isLoading, isAuthenticated]);
+    }, [isLoading, isAuthenticated, onboardingComplete]);
 
     const styles = StyleSheet.create({
         container: {
