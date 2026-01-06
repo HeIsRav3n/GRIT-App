@@ -1,0 +1,83 @@
+/* Global CSS optimizations for smooth scrolling on mobile */
+
+* {
+  /* Prevent text selection during scroll */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+html,
+body {
+  /* Enable smooth scrolling with GPU acceleration */
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+  
+  /* Optimize for touch devices */
+  touch-action: pan-y;
+  
+  /* Prevent overscroll bounce on iOS */
+  overscroll-behavior-y: none;
+  
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+/* Optimize ScrollView performance */
+[data-focusable="true"] {
+  /* GPU acceleration for scrollable elements */
+  will-change: scroll-position;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  
+  /* Smooth momentum scrolling */
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+
+/* Optimize for mobile touch */
+input,
+textarea,
+button,
+select,
+a {
+  /* Faster touch response */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Prevent scroll jank */
+#root {
+  /* Hardware acceleration */
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  
+  /* Optimize rendering */
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    /* Smooth transitions */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Fix for iOS Safari scrolling */
+@supports (-webkit-touch-callout: none) {
+  body {
+    /* Prevent rubber band effect */
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #root {
+    overflow: auto;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+}
