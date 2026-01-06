@@ -12,7 +12,10 @@ export const LanguageProvider = ({ children }) => {
     // Available languages
     const languages = [
         { code: 'en', name: 'English', flag: '🇺🇸' },
-        // Add more languages here as needed
+        { code: 'es', name: 'Español', flag: '🇪🇸' },
+        { code: 'fr', name: 'Français', flag: '🇫🇷' },
+        { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+        { code: 'pt', name: 'Português', flag: '🇧🇷' },
     ];
 
     // Load language preference on mount
@@ -52,8 +55,10 @@ export const LanguageProvider = ({ children }) => {
     return (
         <LanguageContext.Provider
             value={{
+                language: currentLanguage,
                 currentLanguage,
                 changeLanguage,
+                availableLanguages: languages,
                 languages,
                 isLoading
             }}

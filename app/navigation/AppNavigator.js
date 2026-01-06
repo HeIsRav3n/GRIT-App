@@ -24,56 +24,12 @@ import { RewardsScreen } from '../screens/rewards/RewardsScreen';
 import { ProfileScreen } from '../screens/profile/ProfileScreen';
 import { QRCodeScreen } from '../screens/qr/QRCodeScreen';
 
-// Placeholder screens - defined as proper components to avoid re-render issues
-const HealthScreen = () => {
-    const { theme } = useTheme();
-    return (
-        <View style={{ flex: 1, backgroundColor: theme.colors.background, alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ color: theme.colors.text, fontSize: 24 }}>Health</Text>
-            <Text style={{ color: theme.colors.textSecondary, marginTop: 8 }}>Coming soon...</Text>
-        </View>
-    );
-};
-
-const SettingsScreen = () => {
-    const { theme } = useTheme();
-    return (
-        <View style={{ flex: 1, backgroundColor: theme.colors.background, alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ color: theme.colors.text, fontSize: 24 }}>Settings</Text>
-            <Text style={{ color: theme.colors.textSecondary, marginTop: 8 }}>Coming soon...</Text>
-        </View>
-    );
-};
-
-const EditProfileScreen = () => {
-    const { theme } = useTheme();
-    return (
-        <View style={{ flex: 1, backgroundColor: theme.colors.background, alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ color: theme.colors.text, fontSize: 24 }}>Edit Profile</Text>
-            <Text style={{ color: theme.colors.textSecondary, marginTop: 8 }}>Coming soon...</Text>
-        </View>
-    );
-};
-
-const HydrationScreen = () => {
-    const { theme } = useTheme();
-    return (
-        <View style={{ flex: 1, backgroundColor: theme.colors.background, alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ color: theme.colors.text, fontSize: 24 }}>Hydration</Text>
-            <Text style={{ color: theme.colors.textSecondary, marginTop: 8 }}>Coming soon...</Text>
-        </View>
-    );
-};
-
-const ProgressScreen = () => {
-    const { theme } = useTheme();
-    return (
-        <View style={{ flex: 1, backgroundColor: theme.colors.background, alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ color: theme.colors.text, fontSize: 24 }}>Progress</Text>
-            <Text style={{ color: theme.colors.textSecondary, marginTop: 8 }}>Coming soon...</Text>
-        </View>
-    );
-};
+// New Functional Screens
+import { HydrationScreen } from '../screens/hydration/HydrationScreen';
+import { ProgressScreen } from '../screens/progress/ProgressScreen';
+import { HealthScreen } from '../screens/health/HealthScreen';
+import { SettingsScreen } from '../screens/settings/SettingsScreen';
+import { EditProfileScreen } from '../screens/profile/EditProfileScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
