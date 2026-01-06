@@ -14,8 +14,19 @@ export const AuthProvider = ({ children }) => {
         loadUserData();
     }, []);
 
+    const CURRENT_VERSION = '1.0.3'; // Increment this to force clear cache for all users
+
     const loadUserData = async () => {
         try {
+            // Auto-clear cache on version change
+            const storedVersion = await AsyncStorage.getItem('app_version');
+            if (storedVersion !== CURRENT_VERSION) {
+                console.log('🔄 Version mismatch detected! Clearing old cache...');
+                // Optional: Clear specific keys instead of all
+                // await AsyncStorage.clear(); 
+                await AsyncStorage.setItem('app_version', CURRENT_VERSION);
+            }
+
             // Add timeout to prevent hanging on web
             const timeoutPromise = new Promise((resolve) => setTimeout(() => resolve(null), 1000));
             const storagePromise = AsyncStorage.getItem('user');
