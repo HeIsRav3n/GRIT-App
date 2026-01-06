@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
         loadUserData();
     }, []);
 
-    const CURRENT_VERSION = '1.0.3'; // Increment this to force clear cache for all users
+    const CURRENT_VERSION = '1.0.4'; // Increment this to force clear cache for all users
 
     const loadUserData = async () => {
         try {
